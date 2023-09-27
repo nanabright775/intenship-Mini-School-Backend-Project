@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+
+        <!-- {{quiz}} -->
+
+         {% for item in quiz.question_set %}
+         <span>
+            Question
+             <br>
+            {{item.question_text}}
+
+         </span>
+         <br>
+
+         <span>
+            Answers
+            <br>
+            {% for ans in item.answer_text %}
+                <small>{{ans}}</small>
+            {% endfor %}
+         </span>
+         <hr>
+         <hr>
+         <hr>
+         {% endfor %}
+    </section>
+<br><br><br><br>
+
+    <section>
+        <form method="post">
+            {% csrf_token %}
+
+            <input type="text" placeholder="Question" name="question_text">
+            <br>
+            <hr>
+            <input type="text" name="answer" placeholder="answer">
+            <input type="text" name="answer" placeholder="answer">
+            <input type="text" name="answer" placeholder="answer">
+            <hr>
+            <input type="text" name="cor_ans" placeholder="correct answer">
+            <button type="submit">SEND</button>
+        </form>
+    </section>
+</body>
+</html>
+
+<!-- <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script> -->
