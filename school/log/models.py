@@ -39,7 +39,7 @@ class Grade(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
     def get_courses(self):
-        return self.program_set.all()
+        return self._set.all()
     def __str__(self):
         return self.name
 
